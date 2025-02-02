@@ -1,0 +1,73 @@
+@import "tailwindcss";
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    --dark: #2C3A47;
+    --light: #f1f2f6; 
+    --primary: #40739e;
+    --secondary: #48dbfb;
+    --compliment: #ffb142;
+  }
+
+  .bg-light{
+    background-color: var(--light);
+  }
+
+  .bg-dark{
+    background-color: var(--dark);
+  }
+
+  .card{
+    @apply rounded-lg shadow-md;
+  }
+
+  .primary-text{
+    color: var(--primary)
+  }
+
+  .highlight-text{
+    color: var(--compliment)
+  }
+
+  .form-group{
+    @apply flex flex-col;
+  }
+
+  .form-label{
+    @apply font-semibold mb-2 text-gray-800;
+  }
+
+  .form-control{
+    box-sizing: border-box;
+    transition: 0.3s;
+    outline: none;
+    @apply rounded-lg py-2 px-3 border-2 border-gray-400;
+  }
+
+  .form-control:focus{
+    border: 2px solid var(--compliment)
+  }
+
+  .btn{
+    background-color: var(--secondary);
+    color: var(--light);
+    transition: 0.3s;
+    @apply rounded-lg font-bold tracking-wider;
+  }
+
+  .btn-lg{
+    @apply px-5 py-2 
+  }
+
+  .btn-disabled{
+    cursor: default;
+    background-color: var(--primary);
+    @apply rounded-lg font-bold tracking-wider text-gray-200;
+  }
+
+
+  .btn:hover{
+    background-color: var(--compliment);
+    color: var(--dark);
+    cursor: pointer;
+  }
