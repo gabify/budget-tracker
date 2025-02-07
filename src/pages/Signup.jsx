@@ -1,7 +1,29 @@
-import { Link } from "react-router-dom";
-import Footer from "../components/footer";
+import { Link, useNavigate } from "react-router-dom";
+import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
+import { usePost } from "../hooks/usePost";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const Signup = () => {
+    const [send, isLoading, error] = usePost()
+    const {dispatch} = useAuthContext()
+    const navigate = useNavigate()
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleSubmit = async(e) =>{
+        e.preventDefault()
+
+        const user = {name, email, password}
+        const json = await send(user, '/signup')
+
+        if(json){
+            dispatch({type: 'LOGIN', payload: json})
+            navigate('/')
+        }
+    }
+
 
     return ( 
         <main>
@@ -10,14 +32,19 @@ const Signup = () => {
                 <p className="font-light text-sm mt-0.5">Helps you track your expense!</p>
             </div>
 
-            <form className="my-6 p-6 card bg-light w-md mx-auto">
+            <form 
+                className="my-6 p-6 card bg-light w-sm mx-auto"
+                onSubmit={handleSubmit}
+            >
             <div className="form-group mb-3 mt-3">
                     <label htmlFor="name" className="form-label text-sm">Name</label>
                     <input 
                         type="text" 
                         name="name" 
                         id="name" 
-                        className="form-control"
+                        className="form-control form-control-default"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
                     />
                 </div>
 
@@ -27,7 +54,9 @@ const Signup = () => {
                         type="email" 
                         name="email" 
                         id="email" 
-                        className="form-control"
+                        className="form-control form-control-default"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
 
@@ -37,17 +66,9 @@ const Signup = () => {
                         type='password' 
                         name="password" 
                         id="password" 
-                        className="form-control"
-                    />
-                </div>
-
-                <div className="form-group mb-7">
-                    <label htmlFor="confirmPass" className="form-label text-sm">Confirm Password</label>
-                    <input 
-                        type='password'
-                        name="confirmPass" 
-                        id="confirmPass" 
-                        className="form-control"
+                        className="form-control form-control-default"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
 

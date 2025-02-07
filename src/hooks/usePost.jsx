@@ -38,5 +38,5 @@ export const usePost = () =>{
         }
     }
 
-    return {send, isLoading, error}
+    return [send, isLoading, error]
 }

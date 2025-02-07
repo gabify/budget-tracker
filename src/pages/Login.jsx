@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Spinner from "../components/Spinner"
 import { useLogin } from "../hooks/useLogin";
 
@@ -42,7 +42,7 @@ const Login = () => {
 
             <form 
                 onSubmit={handleSubmit}
-                className="my-6 p-6 card bg-light w-md mx-auto"
+                className="my-6 p-6 card bg-light w-sm mx-auto"
             >
                 <div className="form-group mb-7 mt-3">
                     <label htmlFor="email" className="form-label text-sm">Email</label>
@@ -52,7 +52,7 @@ const Login = () => {
                         id="email" 
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="form-control"
+                        className="form-control form-control-default"
                     />
                 </div>
 
@@ -64,7 +64,7 @@ const Login = () => {
                         id="password" 
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="form-control"
+                        className="form-control form-control-default"
                     />
                 </div>
 
@@ -82,7 +82,7 @@ const Login = () => {
                 <div className="flex flex-col justify-content-center">
                     <button 
                         type="submit" 
-                        className={`btn-lg text-md ${isLoading ? 'btn-disabled' : 'btn'}`}
+                        className={`btn-lg text-md text-center ${isLoading ? 'btn-disabled' : 'btn'}`}
                         disabled={isLoading}
                     >
                         {isLoading ? <Spinner /> : 'Log in'}
