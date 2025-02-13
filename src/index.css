@@ -9,77 +9,18 @@
     --compliment: #ffb142;
   }
 
-  .bg-light{
-    background-color: var(--light);
-  }
-
-  .bg-dark{
-    background-color: var(--dark);
-  }
-
-  .card{
-    @apply rounded-lg shadow-md;
-  }
-
-  .primary-text{
-    color: var(--primary)
-  }
-
-  .highlight-text{
-    color: var(--compliment)
-  }
-
-  .form-group{
-    @apply flex flex-col;
-  }
-
-  .form-label{
-    @apply font-semibold mb-2 text-gray-800;
-  }
-
-  .form-control{
-    box-sizing: border-box;
-    transition: 0.3s;
-    outline: none;
-    @apply rounded-lg py-2 px-3;
-  }
-
-.form-control-default{
-  @apply border-2 border-gray-400;
+body{
+  background-color: var(--light);
 }
 
-  .form-control-error{
-    @apply border-2 border-red-400;
-  }
+.input-text{
+  @apply focus:outline-none focus:border-yellow-500 transition delay-100 ease-in-out border-2 border-gray-600 rounded-md p-2 font-light;
+}
 
-  .form-control-default:focus{
-    border: 2px solid var(--compliment)
-  }
+.form-label{
+  @apply mb-2 text-gray-800 text-sm font-medium;
+}
 
-  .form-control-error:focus{
-    @apply border-2 border-red-400;
-  }
-
-  .btn{
-    background-color: var(--secondary);
-    color: var(--light);
-    transition: 0.3s;
-    @apply rounded-lg font-bold tracking-wider;
-  }
-
-  .btn-lg{
-    @apply px-5 py-2 
-  }
-
-  .btn-disabled{
-    cursor: default;
-    background-color: var(--primary);
-    @apply rounded-lg font-bold tracking-wider text-gray-200;
-  }
-
-
-  .btn:hover{
-    background-color: var(--compliment);
-    color: var(--dark);
-    cursor: pointer;
-  }
+.card{
+  @apply shadow-md rounded-md;
+}
