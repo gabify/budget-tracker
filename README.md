@@ -13,7 +13,7 @@ This budget tracking app is designed to help users manage their finances using t
 ## 📦 Installation
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/budget-tracker.git
+   git clone https://github.com/gabify/budget-tracker.git
    ```
 2. Navigate to the project folder:
    ```bash
@@ -33,10 +33,6 @@ This budget tracking app is designed to help users manage their finances using t
 2. **Add Expenses** and categorize them.
 3. **Monitor Your Budget** through the dashboard and adjust spending as needed.
 
-## 📸 Screenshots
-![Dashboard Screenshot](path/to/dashboard-screenshot.png)
-![Expense Entry Screenshot](path/to/expense-entry-screenshot.png)
-
 ## 🔗 Demo
 Check out the live demo: [Demo Link](https://your-demo-link.com)
 
@@ -48,9 +44,9 @@ Contributions are welcome! To contribute:
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a Pull Request.
 
-## 📜 License
-This project is licensed under the MIT License.
-
+## Found a bug?
+If you found an issue or would like to submit an improvement to this project, please submit an issue on the issue tab above.
+If you like to submit a PR with a fix, reference the issue you created.
 
 ## Like this project?
 If you like this project, you can give it a star. I'm still learning how to code so a few motivation will help! 🥺
@@ -58,3 +54,6 @@ If you like this project, you can give it a star. I'm still learning how to code
 ## Speacial Thanks
 This section is dedicated for the open source component I used in this app
 -[<Piggy-bank icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/piggy-bank)
+
+## 📜 License
+This project is licensed under the MIT License.
