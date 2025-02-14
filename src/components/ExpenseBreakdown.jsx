@@ -33,11 +33,11 @@ const ExpenseBreakdown = ({expenseCategory, expenses, reserved}) => {
             <div className={`${expenses.length === 0 && 'hidden'}`}>
                 <div className="mb-0.5 flex justify-between text-xs">
                     <span className="me-1 font-light">Total cost: </span>
-                    <span className={`font-medium ${reserved < total && 'text-red-600'}`}>{`₱ ${total}`}</span>
+                    <span className={`font-medium ${reserved < total && 'text-red-600'}`}>{`₱ ${total.toFixed(2)}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                     <span className="me-1 font-light">Remaining: </span>
-                    <span className={`font-medium ${reserved >= total ? 'text-green-700' : 'text-red-600'}`}>{`₱ ${reserved - total}`}</span>
+                    <span className={`font-medium ${reserved >= total ? 'text-green-700' : 'text-red-600'}`}>{`₱ ${(reserved - total).toFixed(2)}`}</span>
                 </div>
             </div>
         </>

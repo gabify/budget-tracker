@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { useExpenseContext } from "../hooks/useExpenseContext";
+import {FaCircleExclamation} from "react-icons/fa6"
 
 const Forms = () => {
     const {dispatch} = useExpenseContext()
     const [name, setName] = useState('')
     const [cost, setCost] = useState('')
     const [isNeed, setIsNeed] = useState(true)
+    const [error, setError] = useState(null)
 
     const handleSelect = () =>{
         if(isNeed){
@@ -17,18 +19,29 @@ const Forms = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault()
+        setError(null)
 
-        const expense = {
-            name,
-            cost,
-            category: isNeed ? 'needs' : 'wants'
+        try{
+            if(name === '' || cost === ''){
+                throw Error('All fields are required!')
+            }
+
+            if(isNaN(cost)){
+                throw Error('Invalid input. Please provide a number')
+            }
+
+            const expense = {
+                name,
+                cost,
+                category: isNeed ? 'needs' : 'wants'
+            }
+    
+            dispatch({type: 'CREATE_EXPENSE', payload: expense})
+            setName('')
+            setCost('')
+        }catch(error){
+            setError(error.message)
         }
-
-        dispatch({type: 'CREATE_EXPENSE', payload: expense})
-        setName('')
-        setCost('')
-
-        
     }
     
     return ( 
@@ -89,6 +102,13 @@ const Forms = () => {
                         Add Expense
                     </button>
                 </div>
+
+                {error && (
+                    <div className="font-semibold mt-4 text-red-700 bg-red-200 px-3 py-5 rounded-md flex justify-center items-center">
+                        <FaCircleExclamation className="me-1 text-md" />
+                        <p className="text-xs">{error}</p> 
+                    </div>
+                )}
             </form>
         </>
      );

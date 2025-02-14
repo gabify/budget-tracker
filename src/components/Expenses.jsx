@@ -3,8 +3,8 @@ import ExpenseBreakdown from "./ExpenseBreakdown";
 
 const Expenses = ({expenses, breakdown}) => {
     const {dispatch} = useExpenseContext()
-    const needs = expenses.filter((expense) => expense.category === 'needs')
-    const wants = expenses.filter((expense) => expense.category === 'wants')
+    let needs = expenses.filter((expense) => expense.category === 'needs')
+    let wants = expenses.filter((expense) => expense.category === 'wants')
 
     const handleClick = () =>{
         dispatch({type: 'SET_EXPENSES', payload: []})
@@ -28,14 +28,14 @@ const Expenses = ({expenses, breakdown}) => {
                     <ExpenseBreakdown 
                         expenseCategory={'Needs'} 
                         expenses={needs}
-                        reserved={breakdown.needs}
+                        reserved={breakdown.needs.toFixed(2)}
                     />
                 </div>
                 <div className="md:col-span-2">
                     <ExpenseBreakdown 
                         expenseCategory={'Wants'} 
                         expenses={wants} 
-                        reserved={breakdown.wants}
+                        reserved={breakdown.wants.toFixed(2)}
                     />
                 </div>
             </div>

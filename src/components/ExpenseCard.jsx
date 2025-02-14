@@ -10,7 +10,7 @@ const ExpenseCard = ({name, cost, handleDelete}) => {
             <div className="flex justify-between items-center">
                 <div>
                     <p className="text-xs font-light mb-1">{name}</p>
-                    <p className="font-medium">{`₱ ${cost}`}</p>
+                    <p className="font-medium">{`₱ ${parseFloat(cost).toFixed(2)}`}</p>
                 </div>
                 <FaTrash 
                     className='text-red-600 cursor-pointer hover:text-red-500' 
