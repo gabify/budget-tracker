@@ -26,18 +26,18 @@ const ExpenseBreakdown = ({expenseCategory, expenses, reserved}) => {
                 handleDelete={handleDelete}
                 />
             )) : (
-                <small className="font-light text-sx">Add your {expenseCategory}</small>
+                <small className="font-light text-xs">No expenses yet. Add your {expenseCategory}</small>
             )}
             </div>
 
             <div className={`${expenses.length === 0 && 'hidden'}`}>
                 <div className="mb-0.5 flex justify-between text-xs">
                     <span className="me-1 font-light">Total cost: </span>
-                    <span className={`font-medium ${reserved < total && 'text-red-600'}`}>P {total}</span>
+                    <span className={`font-medium ${reserved < total && 'text-red-600'}`}>{`₱ ${total}`}</span>
                 </div>
                 <div className="flex justify-between text-sm">
                     <span className="me-1 font-light">Remaining: </span>
-                    <span className={`font-medium ${reserved >= total ? 'text-green-700' : 'text-red-600'}`}>P {reserved - total}</span>
+                    <span className={`font-medium ${reserved >= total ? 'text-green-700' : 'text-red-600'}`}>{`₱ ${reserved - total}`}</span>
                 </div>
             </div>
         </>

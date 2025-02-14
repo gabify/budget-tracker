@@ -13,6 +13,10 @@ body{
   background-color: var(--light);
 }
 
+p, small, span, h1, h2, h3{
+  cursor: default;
+}
+
 .input-text{
   @apply focus:outline-none focus:border-yellow-500 transition delay-100 ease-in-out border-2 border-gray-600 rounded-md p-2 font-light;
 }
@@ -23,4 +27,19 @@ body{
 
 .card{
   @apply shadow-md rounded-md;
+}
+
+input[type="radio"]{
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--compliment);
+  border-radius: 50%;
+  outline: none;
+  background-color: var(--light);
+  cursor: pointer;
+}
+
+input[type="radio"]:checked{
+  background-color: var(--compliment);
 }
