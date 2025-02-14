@@ -1,11 +1,28 @@
-import { useState } from "react"
 import Forms from "./components/Forms"
-import ExpenseCard from "./components/ExpenseCard"
 import { useExpenseContext } from "./hooks/useExpenseContext"
+import Budget from "./components/Budget"
+import Expenses from "./components/Expenses"
+import { useEffect, useState } from "react"
 
 function App() {
   const {expenses} = useExpenseContext()
-  const [budget, setBudget] = useState('')
+  const [budget, setBudget] = useState(0)
+    const [breakdown, setBreakdown] = useState({
+        needs: 0,
+        wants: 0,
+        savings: 0
+    })
+
+    useEffect(() =>{
+        const breakdown = {
+            needs: budget * 0.5,
+            wants: budget * 0.3,
+            savings: budget * 0.2
+        }
+
+        setBreakdown(breakdown)
+
+    }, [budget])
 
   console.log(expenses)
 
@@ -15,22 +32,10 @@ function App() {
           <h1 className="text-xl font-medium">Budget Tracker</h1>
           <p className="text-sm font-light">Track your budget and save more!</p>
       </section>
-      
-      <Forms budget={budget} setBudget={setBudget} />
 
-      <section className="card bg-gray-50 px-3 py-4 mt-3">
-        <h2 className="text-sm font-medium mb-3">List of Expenses</h2>
-        
-        <div>
-          {expenses && expenses.map((expense) =>
-            <ExpenseCard 
-              key={expense.name}
-              name={expense.name} 
-              cost={expense.cost} 
-            />
-          )}
-        </div>
-      </section>
+      <Budget setBudget={setBudget} breakdown={breakdown}/>
+      <Forms />
+      <Expenses expenses={expenses} breakdown={breakdown}/>
     </main>
   )
 }

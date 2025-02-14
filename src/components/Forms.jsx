@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useExpenseContext } from "../hooks/useExpenseContext";
 
-const Forms = ({budget, setBudget}) => {
+const Forms = () => {
     const {dispatch} = useExpenseContext()
     const [name, setName] = useState('')
     const [cost, setCost] = useState('')
@@ -33,19 +33,10 @@ const Forms = ({budget, setBudget}) => {
     
     return ( 
         <>
-            <section className="card bg-gray-50 px-3 py-4">
-                <div className="budget-form flex flex-col mb-5">
-                    <label htmlFor="budget" className="form-label">Enter your budget</label>
-                    <input 
-                        type="text" 
-                        className="input-text"
-                        value={budget}
-                        onChange={(e) => setBudget(e.target.value)}
-                    />
-                </div>
-                <form onSubmit={handleSubmit}>
+            <section>
+                <h2 className="text-sm font-semibold text-gray-900 mt-5 mb-3">Add your expenses here</h2>
+                <form onSubmit={handleSubmit} className="card bg-gray-50 px-3 py-4">
                     <div className="expense-form">
-                        <p className="text-sm font-semibold text-gray-900 mb-5">Add your expenses here</p>
                         <div className="flex flex-col mb-3">
                             <label htmlFor="expense-name" className="form-label">Name</label>
                             <input 
