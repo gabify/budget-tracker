@@ -34,7 +34,7 @@ This budget tracking app is designed to help users manage their finances using t
 3. **Monitor Your Budget** through the dashboard and adjust spending as needed.
 
 ## 🔗 Demo
-Check out the live demo: [Demo Link](https://your-demo-link.com)
+Check out the live demo: [Demo Link](https://budget-tracker-alpha-nine.vercel.app/)
 
 ## 🤝 Contributing
 Contributions are welcome! To contribute:
@@ -44,14 +44,14 @@ Contributions are welcome! To contribute:
 4. Push to the branch (`git push origin feature-branch`).
 5. Open a Pull Request.
 
-## Found a bug?
+## 🐞 Found a bug?
 If you found an issue or would like to submit an improvement to this project, please submit an issue on the issue tab above.
 If you like to submit a PR with a fix, reference the issue you created.
 
-## Like this project?
+## 👍 Like this project?
 If you like this project, you can give it a star. I'm still learning how to code so a few motivation will help! 🥺
 
-## Speacial Thanks
+## ❤️ Speacial Thanks
 This section is dedicated for the open source component I used in this app
 -[<Piggy-bank icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/piggy-bank)
 
